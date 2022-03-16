@@ -15,7 +15,7 @@
     <nav class="navbar">
       <div class="dropdown1">
         <img src="/images/choose-character-btn.svg" class="choose-character-btn">
-        <select class="dropdown-content1" onchange="Fetchpicture1()">
+        <select class="dropdown-content1" onchange="Fetchpicture1(); getInfo1()">
           <option value="/7/">Beru</option>
           <option value="/9/">Biggs</option>
           <option value="/2/">C-3PO</option>
@@ -31,7 +31,7 @@
 
       <div class="dropdown2">
         <img src="/images/choose-character-btn.svg" class="choose-character-btn">
-        <select class="dropdown-content2" onchange="Fetchpicture2()">
+        <select class="dropdown-content2" onchange="Fetchpicture2(); getInfo2()">
           <option value="/7/">Beru</option>
           <option value="/9/">Biggs</option>
           <option value="/2/">C-3PO</option>
@@ -89,8 +89,6 @@
   </div>
   </main>
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/main.js" async></script>
 </body>
 </html>

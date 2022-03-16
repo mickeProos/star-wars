@@ -18,7 +18,7 @@ Användaren ska sedan kunna klicka på en knapp för att hämta data om karaktä
 
  OBS! API:et ger dig inga bilder, så du behöver själv lösa bilder för alla åtta karaktärer din applikation tillåter. (Har du skapat en Character-klass så ska du lägga till en bild-URL i egenskapen “pictureUrl” baserat på vilken karaktär som hämtats) använd t.ex Google för att hitta bilder för karaktärerna). (x)
 
-Rendera nu ut Karaktär 1 och Karaktär 2 i DOM:en - De ska visas ut med en bild samt namn.
+Rendera nu ut Karaktär 1 och Karaktär 2 i DOM:en - De ska visas ut med en bild samt namn. (x)
 
 Sedan gör du ett av följande krav:
 
