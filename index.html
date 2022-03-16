@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <main>
+    <nav class="navbar">
+      <div class="dropdown1">
+        <img src="/images/choose-character-btn.svg" class="choose-character-btn">
+        <select class="dropdown-content1" onchange="Fetchpicture1()">
+          <option value="/7/">Beru</option>
+          <option value="/9/">Biggs</option>
+          <option value="/2/">C-3PO</option>
+          <option value="/4/">Darth-Vader</option>
+          <option value="/5/">Leia</option>
+          <option value="/1/">Luke</option>
+          <option value="/10/">Obi-wan</option>
+          <option value="/6/">Owen</option>
+          <option value="/3/">R2-D2</option>
+          <option value="/8/">R5-D4</option>
+        </select>
+      </div>
+
+      <div class="dropdown2">
+        <img src="/images/choose-character-btn.svg" class="choose-character-btn">
+        <select class="dropdown-content2" onchange="Fetchpicture2()">
+          <option value="/7/">Beru</option>
+          <option value="/9/">Biggs</option>
+          <option value="/2/">C-3PO</option>
+          <option value="/4/">Darth-Vader</option>
+          <option value="/5/">Leia</option>
+          <option value="/1/">Luke</option>
+          <option value="/10/">Obi-wan</option>
+          <option value="/6/">Owen</option>
+          <option value="/3/">R2-D2</option>
+          <option value="/8/">R5-D4</option>
+        </select>
+      </div>
+    </nav>
+
+
+
+    <div class="container">
+
+      
+
+
+      <div class="character">
+          <div class="content">
+            <span class="character-picture1"></span>
+            <span class="info">
+              <h1 id="name1"></h1>
+              <p id="height1"></p>
+            <p id="mass1"></p>
+            <p id="birth-year1"></p>
+            </span>
+            <img src="/images/get-data-btn.svg" class="get-data-btn-1" id="get-data-btn">
+          </div>
+      </div>
+
+      <div class="content">
+
+        <img src="/images/compare-btn.svg" class="compare-btn">
+      </div>
+
+
+      
+      <div class="character">
+        <div class="content">
+          <span class="character-picture2"></span>
+          <span class="info">
+            <h1 id="name2"></h1>
+            <p id="height2"></p>
+            <p id="mass2"></p>
+            <p id="birth-year2"></p>
+          </span>
+          <img src="/images/get-data-btn.svg" class="get-data-btn-2" id="get-data-btn">
+        </div>
+      </div>
+
+  </div>
+  </main>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/main.js" async></script>
+</body>
+</html>
