@@ -1,7 +1,5 @@
 const request ='https://swapi.dev/api/people'
 
-
-
   class character1 { 
   constructor(name, height, mass) {
   this.name = name
@@ -79,6 +77,8 @@ let fetchData = async (url) => {
 
 let dataBtn1 = document.querySelector('.get-data-btn-1')
 let dataBtn2 = document.querySelector('.get-data-btn-2')
+let compareBtn = document.querySelector('.compare-btn')
+
 let name1 = document.querySelector('#name1')
 let name2 = document.querySelector('#name2')
 let height = document.querySelector('#height1')
@@ -135,13 +135,6 @@ function updateInfo2(data) {
 dataBtn1.addEventListener('click', getInfo1)
 dataBtn2.addEventListener('click', getInfo2)
 
-
-
-
-
-
-
-
 async function Fetchpicture1 () {
 let  id1 = dropdown1.value;
 let charOneobj =  await fetchData(`${request}${id1}`)
@@ -181,3 +174,61 @@ async function Fetchpicture2 () {
 
 
 // 3 fixa compare button
+
+
+
+// function statsCheck() {
+
+// Fetchpicture1()
+//     .then((characterInfo1) => { 
+//     return characterInfo1.height , characterInfo1.mass
+//     }) 
+
+// Fetchpicture2()
+//     .then((characterInfo2) => { 
+//     return characterInfo2.height , characterInfo2.mass
+//     }) 
+
+async  function statsChecker1() {
+    let [characterInfo1, characterInfo2] = await Promise.all([Fetchpicture1(), Fetchpicture2()]);
+    console.log(characterInfo1 , characterInfo2)
+    
+    //height
+    if (characterInfo1.height > characterInfo2.height ) {
+      console.log("winner is character 1 in height ")
+      if (characterInfo1.mass > characterInfo2.mass) {
+        console.log("winner is character 1 in mass")
+      }
+      if (characterInfo1.mass < characterInfo2.mass) {
+        console.log("winner is character 2 in mass")
+      } 
+      else  {
+          console.log("IT'S A TIE")
+      } 
+    } 
+    
+    else if (characterInfo2.height > characterInfo1.height ) {
+      console.log("winner is character 2  in height ")
+      if (characterInfo1.mass > characterInfo2.mass) {
+
+        console.log(characterInfo1.mass)
+        console.log("winner is character 1 in mass")
+      }
+      if (characterInfo1.mass < characterInfo2.mass) {
+        console.log(characterInfo2.mass)
+        console.log("winner is character 2 in mass")
+      } 
+      else  {
+          console.log("IT'S A TIE")
+      } 
+    } 
+    else{
+        console.log("IT'S A TIE")
+    } 
+
+  }
+  
+ 
+
+ 
+compareBtn.addEventListener('click', statsChecker1)
