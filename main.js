@@ -95,7 +95,7 @@ let characterPicture2 = document.querySelector('.character-picture2')
 
 
 function getInfo1() {
-
+  
  Fetchpicture1()
     .then((characterInfo) => { 
     updateInfo1(characterInfo)
@@ -132,17 +132,39 @@ function updateInfo2(data) {
   birthYear2.innerText = `birth-year: ${data.birth_year}`
 }
 
-dataBtn1.addEventListener('click', getInfo1)
-dataBtn2.addEventListener('click', getInfo2)
+const visibilityChanger1 = () => {
+  
+  let infotext1 = document.querySelector('.info1')
+  if (infotext1.style.visibility == "hidden") {
+    document.querySelector('.info1').style.visibility = "visible"
+  }
+  else {
+    document.querySelector('.info1').style.visibility = "hidden"
+  }
+  
+  
+
+}
+const visibilityChanger2 = () => {
+  let infotext2 = document.querySelector('.info2')
+  if (infotext2.style.visibility == "hidden") {
+    document.querySelector('.info2').style.visibility = "visible"
+  }
+  else {
+    document.querySelector('.info2').style.visibility = "hidden"
+  }
+}
+dataBtn1.addEventListener('click', visibilityChanger1)
+dataBtn2.addEventListener('click', visibilityChanger2)
+
 
 async function Fetchpicture1 () {
 let  id1 = dropdown1.value;
 let charOneobj =  await fetchData(`${request}${id1}`)
 console.log(id1)
-
 let {name, height, mass } = charOneobj
 let charOne = new character1(name, height, mass );
-console.log(characterPicture1);
+updateInfo1(charOne)
 characterPicture1.innerHTML = `<img src="${charOne.characterPicture1}" alt="Character" height="400px"
 width="400px"> `;
 return charOne
@@ -156,10 +178,9 @@ async function Fetchpicture2 () {
   let  id2 = dropdown2.value;
   let charTwoObj =  await fetchData(`${request}${id2}`)
   console.log(id2)
-  
   let {name, height, mass } = charTwoObj
   let charTwo = new character2(name, height, mass );
-  console.log(characterPicture2);
+  updateInfo2(charTwo)
   characterPicture2.innerHTML = `<img src="${charTwo.characterPicture2}" alt="Character" height="400px"
   width="400px"> `;
   
@@ -173,62 +194,33 @@ async function Fetchpicture2 () {
 
 
 
-// 3 fixa compare button
-
-
-
-// function statsCheck() {
-
-// Fetchpicture1()
-//     .then((characterInfo1) => { 
-//     return characterInfo1.height , characterInfo1.mass
-//     }) 
-
-// Fetchpicture2()
-//     .then((characterInfo2) => { 
-//     return characterInfo2.height , characterInfo2.mass
-//     }) 
 
 async  function statsChecker1() {
     let [characterInfo1, characterInfo2] = await Promise.all([Fetchpicture1(), Fetchpicture2()]);
     console.log(characterInfo1 , characterInfo2)
-    
-    //height
-    if (characterInfo1.height > characterInfo2.height ) {
-      console.log("winner is character 1 in height ")
-      if (characterInfo1.mass > characterInfo2.mass) {
-        console.log("winner is character 1 in mass")
-      }
-      if (characterInfo1.mass < characterInfo2.mass) {
-        console.log("winner is character 2 in mass")
-      } 
-      else  {
-          console.log("IT'S A TIE")
-      } 
-    } 
-    
-    else if (characterInfo2.height > characterInfo1.height ) {
-      console.log("winner is character 2  in height ")
-      if (characterInfo1.mass > characterInfo2.mass) {
+    let result1 = document.querySelector('.character-result1') 
+    let result2 = document.querySelector('.character-result2') 
 
-        console.log(characterInfo1.mass)
-        console.log("winner is character 1 in mass")
-      }
-      if (characterInfo1.mass < characterInfo2.mass) {
-        console.log(characterInfo2.mass)
-        console.log("winner is character 2 in mass")
-      } 
-      else  {
-          console.log("IT'S A TIE")
-      } 
-    } 
-    else{
-        console.log("IT'S A TIE")
-    } 
-
-  }
+  let height1 = characterInfo1.height
+  let height2 = characterInfo2.height
+  let mass1 = characterInfo1.mass
+  let mass2 = characterInfo2.mass
   
- 
+  if (parseInt(mass1) > parseInt(mass2)) {
+    result2.innerHTML = `Winner who has biggest mass: ${characterInfo1.name}<br>`}
+    else if (mass1 == mass2) {
+      result2.innerHTML = `IT'S A TIE IN MASS`}
+    else {
+      result2.innerHTML = `Winner who has biggest mass: ${characterInfo2.name}`}
+
+  if (parseInt(height1) > parseInt(height2)) {
+    result1.innerHTML = `Winner who is tallest: ${characterInfo1.name}<br>`}
+  else if (height2 == height1) {
+    result1.innerHTML = `IT'S A TIE IN LENGTH`}
+  else {
+    result1.innerHTML = `Winner who is tallest: ${characterInfo2.name}`}
+  
 
  
+    }
 compareBtn.addEventListener('click', statsChecker1)

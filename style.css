@@ -33,10 +33,21 @@ body {
 
 .content {
   min-width: 30%;
+  height: 100%;
+  min-height: 500px;
   display:flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  text-align: center;
   flex-direction: column;
+}
+
+.character-result {
+  color:white;
+  font-size: larger;
+  display:flex;
+  flex-flow: column;
+  
 }
 
 .character-picture1  {
@@ -100,13 +111,14 @@ body {
 .dropdown2:hover .dropdown-content2 {display: block;}
 
 
-.info {
+.info1 , .info2 {
   width:400px;
   height:185px; 
-  color:white;
+  color:white; 
 }
 
 .choose-character-btn , #get-data-btn , .compare-btn{ 
   cursor: pointer;
  }
+
 
