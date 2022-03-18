@@ -85,8 +85,6 @@ let height = document.querySelector('#height1')
 let height2 = document.querySelector('#height2')
 let mass = document.querySelector('#mass1')
 let mass2 = document.querySelector('#mass2')
-let birthYear = document.querySelector('#birth-year1')
-let birthYear2 = document.querySelector('#birth-year2')
 
 let dropdown1 = document.querySelector(".dropdown-content1")
 let dropdown2 = document.querySelector(".dropdown-content2")
@@ -116,7 +114,7 @@ function updateInfo1(data) {
   
   height.innerText = `Height: ${data.height}`
   mass.innerText = `mass: ${data.mass}`
-  birthYear.innerText = `birth-year: ${data.birth_year}`
+ 
 
  
 }
@@ -129,7 +127,7 @@ function updateInfo2(data) {
 
   height2.innerText = `Height: ${data.height}`
   mass2.innerText = `mass: ${data.mass}`
-  birthYear2.innerText = `birth-year: ${data.birth_year}`
+  
 }
 
 const visibilityChanger1 = () => {
